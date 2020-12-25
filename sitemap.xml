@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cbwood.github.io/2018/hello-world/</loc>
+    
+    <lastmod>2020-12-25</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cbwood.github.io/2018/2018%E4%B8%8A%E6%B5%B7%E5%A4%A7%E9%83%BD%E4%BC%9AF/</loc>
     
     <lastmod>2020-10-06</lastmod>
@@ -143,13 +150,6 @@
   
   <url>
     <loc>http://cbwood.github.io/2019/codeforce-hello-2019/</loc>
-    
-    <lastmod>2020-10-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cbwood.github.io/2020/hello-world/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
