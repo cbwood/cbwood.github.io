@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://cbwood.github.io/categories/</loc>
+    <loc>http://cbwood.github.io/categories/index.html</loc>
     
     <lastmod>2020-12-25</lastmod>
     
@@ -191,14 +191,14 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/about/</loc>
+    <loc>http://cbwood.github.io/about/index.html</loc>
     
     <lastmod>2020-10-06</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/tags/</loc>
+    <loc>http://cbwood.github.io/tags/index.html</loc>
     
     <lastmod>2020-10-06</lastmod>
     
