@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://cbwood.github.io/categories/index.html</loc>
+    <loc>http://cbwood.github.io/categories/</loc>
     
     <lastmod>2020-12-25</lastmod>
     
@@ -51,13 +51,6 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/HDU-5663/</loc>
-    
-    <lastmod>2020-10-06</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://cbwood.github.io/2018/HDU-6325/</loc>
     
     <lastmod>2020-10-06</lastmod>
@@ -65,7 +58,7 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/HDU-6327/</loc>
+    <loc>http://cbwood.github.io/2018/HDU-5663/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
@@ -79,7 +72,7 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/HDU-6363/</loc>
+    <loc>http://cbwood.github.io/2018/HDU-6327/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
@@ -93,7 +86,7 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/HDU-6442/</loc>
+    <loc>http://cbwood.github.io/2018/HDU-6363/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
@@ -107,14 +100,14 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/LightOJ-1173/</loc>
+    <loc>http://cbwood.github.io/2018/HDU-6442/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/LightOJ-1321/</loc>
+    <loc>http://cbwood.github.io/2018/LightOJ-1173/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
@@ -128,7 +121,7 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/SGU-275/</loc>
+    <loc>http://cbwood.github.io/2018/LightOJ-1321/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
@@ -142,7 +135,7 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2019/codeforce-hello-2019/</loc>
+    <loc>http://cbwood.github.io/2018/SGU-275/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
@@ -156,6 +149,13 @@
   </url>
   
   <url>
+    <loc>http://cbwood.github.io/2019/codeforce-hello-2019/</loc>
+    
+    <lastmod>2020-10-06</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cbwood.github.io/2018/bzoj-2120/</loc>
     
     <lastmod>2020-10-06</lastmod>
@@ -163,14 +163,14 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/python%E7%9A%84requests%E5%BA%93%E7%94%A8%E4%BA%8E%E7%88%AC%E8%99%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/</loc>
+    <loc>http://cbwood.github.io/2019/python%E7%88%AC%E5%8F%96%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2019/python%E7%88%AC%E5%8F%96%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1/</loc>
+    <loc>http://cbwood.github.io/2018/python%E7%9A%84requests%E5%BA%93%E7%94%A8%E4%BA%8E%E7%88%AC%E8%99%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
@@ -191,14 +191,14 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/about/index.html</loc>
+    <loc>http://cbwood.github.io/about/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/tags/index.html</loc>
+    <loc>http://cbwood.github.io/tags/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
@@ -277,14 +277,14 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/</loc>
+    <loc>http://cbwood.github.io/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</loc>
     <lastmod>2020-12-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/</loc>
+    <loc>http://cbwood.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/</loc>
     <lastmod>2020-12-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
