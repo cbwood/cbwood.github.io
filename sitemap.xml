@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cbwood.github.io/categories/index.html</loc>
+    
+    <lastmod>2020-12-25</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cbwood.github.io/2018/hello-world/</loc>
     
     <lastmod>2020-12-25</lastmod>
@@ -30,14 +37,14 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/HDU-3949/</loc>
+    <loc>http://cbwood.github.io/2018/HDU-2841/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/HDU-2841/</loc>
+    <loc>http://cbwood.github.io/2018/HDU-3949/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
@@ -58,14 +65,14 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/HDU-6336/</loc>
+    <loc>http://cbwood.github.io/2018/HDU-6327/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/HDU-6327/</loc>
+    <loc>http://cbwood.github.io/2018/HDU-6336/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
@@ -121,13 +128,6 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/Rikka-with-Prefix-Sum/</loc>
-    
-    <lastmod>2020-10-06</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://cbwood.github.io/2018/SGU-275/</loc>
     
     <lastmod>2020-10-06</lastmod>
@@ -135,7 +135,7 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/Valid-BFS/</loc>
+    <loc>http://cbwood.github.io/2018/Rikka-with-Prefix-Sum/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
@@ -149,6 +149,13 @@
   </url>
   
   <url>
+    <loc>http://cbwood.github.io/2018/Valid-BFS/</loc>
+    
+    <lastmod>2020-10-06</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cbwood.github.io/2018/bzoj-2120/</loc>
     
     <lastmod>2020-10-06</lastmod>
@@ -156,14 +163,14 @@
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2019/python%E7%88%AC%E5%8F%96%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1/</loc>
+    <loc>http://cbwood.github.io/2018/python%E7%9A%84requests%E5%BA%93%E7%94%A8%E4%BA%8E%E7%88%AC%E8%99%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
   </url>
   
   <url>
-    <loc>http://cbwood.github.io/2018/python%E7%9A%84requests%E5%BA%93%E7%94%A8%E4%BA%8E%E7%88%AC%E8%99%AB%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/</loc>
+    <loc>http://cbwood.github.io/2019/python%E7%88%AC%E5%8F%96%E7%8C%AB%E7%9C%BC%E7%94%B5%E5%BD%B1/</loc>
     
     <lastmod>2020-10-06</lastmod>
     
@@ -185,13 +192,6 @@
   
   <url>
     <loc>http://cbwood.github.io/about/index.html</loc>
-    
-    <lastmod>2020-10-06</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cbwood.github.io/categories/index.html</loc>
     
     <lastmod>2020-10-06</lastmod>
     
