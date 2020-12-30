@@ -392,7 +392,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    st = <span class="string">&#x27;www.woodcb.com&#x27;</span></span><br><span class="line">    ans = re.match(<span class="string">&#x27;w(.*).wo(.*).com&#x27;</span>, st)</span><br><span class="line">    print(ans.group())</span><br><span class="line">    print(ans.group(<span class="number">1</span>))</span><br><span class="line">    print(ans.group(<span class="number">2</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>结果</p>
 <blockquote>
-<p><a target="_blank" rel="noopener" href="http://www.woodcb.com/">www.woodcb.com</a><br>ww<br>odcb</p>
+<p><span class="exturl" data-url="aHR0cDovL3d3dy53b29kY2IuY29tLw==">www.woodcb.com<i class="fa fa-external-link-alt"></i></span><br>ww<br>odcb</p>
 </blockquote>
 <p>可以看见group(num) 得到的是第几个匹配的括号表达式里面的内容</p>
 <p><strong>re.search</strong> 扫描整个字符串并返回第一个成功的匹配，否则返回None。与match类似就不举例了。</p>

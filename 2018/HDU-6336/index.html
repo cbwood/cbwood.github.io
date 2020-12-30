@@ -371,7 +371,7 @@
 
 
 <p>Source</p>
-<p><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/search.php?field=problem&key=2018+Multi-University+Training+Contest+4&source=1&searchmode=source">2018 Multi-University Training Contest 4</a></p>
+<p><span class="exturl" data-url="aHR0cDovL2FjbS5oZHUuZWR1LmNuL3NlYXJjaC5waHA/ZmllbGQ9cHJvYmxlbSZrZXk9MjAxOCtNdWx0aS1Vbml2ZXJzaXR5K1RyYWluaW5nK0NvbnRlc3QrNCZzb3VyY2U9MSZzZWFyY2htb2RlPXNvdXJjZQ==">2018 Multi-University Training Contest 4<i class="fa fa-external-link-alt"></i></span></p>
 <hr>
 <h3 id="题意"><a href="#题意" class="headerlink" title="题意:"></a>题意:</h3><p>给定一个矩阵生成方式，求给定子矩阵的元素之和。</p>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路:"></a>思路:</h3><p><del>显而易见的公式</del><br>$$<br>M[i][j] = A[(\frac{(i + j)(i + j + 1)}{2} + i) \mod L] = A[(\frac{3i}{2} + \frac{j}{2} + \frac{i ^ 2} {2} + \frac{j ^ 2}{2} + ij) \mod L] = M[i + 2L][j] = M[i][j + 2L]<br>$$</p>
