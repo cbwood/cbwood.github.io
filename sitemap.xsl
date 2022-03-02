@@ -131,7 +131,7 @@
                             <xsl:value-of select="count(sitemap:urlset/sitemap:url)"/> URLs.
                         </p>
                         <p class="expl">
-                            <a href="googlesitemap.xml">&#8593; Sitemap Index</a>
+                            <a href="sitemap2.xml">&#8593; Sitemap Index</a>
                         </p>
                         <table id="sitemap" cellpadding="3">
                             <thead>
