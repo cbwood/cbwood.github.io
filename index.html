@@ -171,6 +171,93 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cbwood.github.io/ACM-Algorithm/2144647015.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/12/25/HIPVZyjOWgUsE5T.jpg">
+      <meta itemprop="name" content="cc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CC">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ACM-Algorithm/2144647015.html" class="post-title-link" itemprop="url">c++ 智能指针shared_ptr实现</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-04 14:23:20 / 修改时间：14:28:31" itemprop="dateCreated datePublished" datetime="2022-03-04T14:23:20+08:00">2022-03-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM-Algorithm/" itemprop="url" rel="index"><span itemprop="name">ACM/Algorithm</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/ACM-Algorithm/2144647015.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ACM-Algorithm/2144647015.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>智能指针为一个带有指针和计数器的类</p>
+<ul>
+<li>计数器使用指针实现，可以实现多个智能指针的计数器指向同一地址，方便计数</li>
+</ul>
+<h3 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;algorithm&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;iostream&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">shared_p</span>&#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> *count;</span><br><span class="line">    T* ptr;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">shared_p</span>(T* p):<span class="built_in">ptr</span>(p), <span class="built_in">count</span>(<span class="keyword">new</span> <span class="type">unsigned</span> <span class="built_in">int</span>(<span class="number">1</span>))&#123;&#125;</span><br><span class="line">    <span class="built_in">shared_p</span>(<span class="type">const</span> shared_p&lt;T&gt; &amp;p):<span class="built_in">ptr</span>(p.ptr), <span class="built_in">count</span>(p.count)&#123;</span><br><span class="line">        (*count)++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">shared_p</span>(<span class="type">const</span> T *p):<span class="built_in">ptr</span>(p), <span class="built_in">count</span>(<span class="keyword">new</span> <span class="type">unsigned</span> <span class="built_in">int</span>(<span class="number">1</span>))&#123;&#125;</span><br><span class="line">    ~<span class="built_in">shared_p</span>()&#123;</span><br><span class="line">        <span class="keyword">if</span>(count != <span class="literal">nullptr</span> &amp;&amp;--(*count) == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">delete</span> count;</span><br><span class="line">            <span class="keyword">delete</span> ptr;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">unsigned</span> <span class="type">int</span> <span class="title">getCount</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> *(<span class="keyword">this</span>-&gt;count);</span><br><span class="line">    &#125;</span><br><span class="line">    shared_p&lt;T&gt;&amp; <span class="keyword">operator</span>= (<span class="type">const</span> shared_p &amp;p)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span> == &amp;p)</span><br><span class="line">            <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">if</span>(count != <span class="literal">nullptr</span> &amp;&amp;--(*count) == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">delete</span> count;</span><br><span class="line">            <span class="keyword">delete</span> ptr;</span><br><span class="line">        &#125;</span><br><span class="line">        (*p.count)++;</span><br><span class="line"></span><br><span class="line">        ptr = p.ptr;</span><br><span class="line">        count = p.count;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    T &amp;<span class="keyword">operator</span>*()&#123;</span><br><span class="line">        <span class="keyword">return</span> *(<span class="keyword">this</span>-&gt;ptr);</span><br><span class="line">    &#125;</span><br><span class="line">    T *<span class="keyword">operator</span>-&gt;()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>-&gt;ptr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function">shared_p&lt;string&gt; <span class="title">p1</span><span class="params">(<span class="keyword">new</span> string(<span class="string">&quot;hellow shared_ptr&quot;</span>))</span></span>;</span><br><span class="line">    cout&lt;&lt;p1.<span class="built_in">getCount</span>()&lt;&lt;endl;</span><br><span class="line">    <span class="function">shared_p&lt;string&gt; <span class="title">p2</span><span class="params">(p1)</span></span>;</span><br><span class="line">    cout&lt;&lt;p1.<span class="built_in">getCount</span>()&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;p2.<span class="built_in">getCount</span>()&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://cbwood.github.io/ACM-Algorithm/490227736.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1013,97 +1100,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cbwood.github.io/ACM-Algorithm/1335914217.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/12/25/HIPVZyjOWgUsE5T.jpg">
-      <meta itemprop="name" content="cc">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CC">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ACM-Algorithm/1335914217.html" class="post-title-link" itemprop="url">leetcode-面试题 17.10 主要元素(投票算法)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-12-29 09:55:43 / 修改时间：10:11:16" itemprop="dateCreated datePublished" datetime="2021-12-29T09:55:43+08:00">2021-12-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM-Algorithm/" itemprop="url" rel="index"><span itemprop="name">ACM/Algorithm</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ACM-Algorithm/1335914217.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ACM-Algorithm/1335914217.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vcHJvYmxlbXMvZmluZC1tYWpvcml0eS1lbGVtZW50LWxjY2kv" title="https://leetcode-cn.com/problems/find-majority-element-lcci/">面试题 17.10. 主要元素 - 力扣（LeetCode） (leetcode-cn.com)<i class="fa fa-external-link"></i></span></p>
-<h3 id="题意"><a class="markdownIt-Anchor" href="#题意"></a> 题意</h3>
-<p>数组中占比超过一半的元素称之为主要元素。给你一个 整数 数组，找出其中的主要元素。若没有，返回 -1 。请设计时间复杂度为 O(N) 、空间复杂度为 O(1) 的解决方案。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/ACM-Algorithm/1335914217.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1175,7 +1171,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">185</span>
+          <span class="site-state-item-count">186</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1188,7 +1184,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">66</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
