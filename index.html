@@ -171,6 +171,103 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://cbwood.github.io/ACM-Algorithm/490227736.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2020/12/25/HIPVZyjOWgUsE5T.jpg">
+      <meta itemprop="name" content="cc">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CC">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ACM-Algorithm/490227736.html" class="post-title-link" itemprop="url">leetcode-2104 子数组范围和</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-03-04 10:15:49 / 修改时间：10:28:24" itemprop="dateCreated datePublished" datetime="2022-03-04T10:15:49+08:00">2022-03-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ACM-Algorithm/" itemprop="url" rel="index"><span itemprop="name">ACM/Algorithm</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/ACM-Algorithm/490227736.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ACM-Algorithm/490227736.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vcHJvYmxlbXMvc3VtLW9mLXN1YmFycmF5LXJhbmdlcy8=" title="https://leetcode-cn.com/problems/sum-of-subarray-ranges/">2104. 子数组范围和 - 力扣（LeetCode） (leetcode-cn.com)<i class="fa fa-external-link"></i></span></p>
+<h3 id="题意"><a class="markdownIt-Anchor" href="#题意"></a> 题意</h3>
+<p>给你一个整数数组nums。返回nums中所有子数组范围的和 。</p>
+<p>子数组的 范围 是子数组中最大元素和最小元素的差值。</p>
+<h3 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h3>
+<p>首先想到的解法是暴力即可，在枚举子数组的同时，维护最大值和最小值。</p>
+<p>但暴力时间复杂度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>n</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>。</p>
+<p>进一步分析题意，可以得到，实际上的最终答案为所有子数组的最大值的和减去所有子数组的最小值的和。</p>
+<p>因此我们可以枚举数组的每个数作为子数组的最大值和最小值时对答案的贡献。</p>
+<p>当nums[i]作为最大值时，需要找到nums[i]左边第一个比它大的数的下标lmax，和右边第一个比它大的数的下标rmax，此时nums[i]对答案的贡献为 (i-lmax)*(i-rmax)*nums[i]。</p>
+<p>同理，当nums[i]作为最小值时，需要找到nums[i]左边第一个比它小的数的下标lmin，和右边第一个比它小的数的下标rmin，此时nums[i]对答案的贡献为 -(i-lmin)*(i-rmin)*nums[i]。</p>
+<p>可以用单调栈维护上述过程。</p>
+<h3 id="暴力代码"><a class="markdownIt-Anchor" href="#暴力代码"></a> 暴力代码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *@File Name          :leetcode-2104.cpp</span></span><br><span class="line"><span class="comment"> *@Author             :cc</span></span><br><span class="line"><span class="comment"> *@Version            :1.0.0</span></span><br><span class="line"><span class="comment"> *@Date               :2022/3/4 9:06</span></span><br><span class="line"><span class="comment"> *@Description        :</span></span><br><span class="line"><span class="comment"> *@Function List      :</span></span><br><span class="line"><span class="comment"> *@History            :</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;vector&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;algorithm&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">subArrayRanges</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="type">int</span> minx = nums[i], maxx = nums[i];</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = i+<span class="number">1</span>; j &lt; nums.<span class="built_in">size</span>(); j++)&#123;</span><br><span class="line">                minx = <span class="built_in">min</span>(minx, nums[j]);</span><br><span class="line">                maxx = <span class="built_in">max</span>(maxx, nums[j]);</span><br><span class="line">                ans += maxx-minx;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="单调栈代码"><a class="markdownIt-Anchor" href="#单调栈代码"></a> 单调栈代码</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *@File Name          :leetcode-2104.cpp</span></span><br><span class="line"><span class="comment"> *@Author             :cc</span></span><br><span class="line"><span class="comment"> *@Version            :1.0.0</span></span><br><span class="line"><span class="comment"> *@Date               :2022/3/4 9:06</span></span><br><span class="line"><span class="comment"> *@Description        :</span></span><br><span class="line"><span class="comment"> *@Function List      :</span></span><br><span class="line"><span class="comment"> *@History            :</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;vector&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;algorithm&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stack&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">subArrayRanges</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;nums)</span> </span>&#123;</span><br><span class="line">        <span class="type">long</span> <span class="type">long</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">lmin</span><span class="params">(n, <span class="number">0</span>)</span>, <span class="title">lmax</span><span class="params">(n, n - <span class="number">1</span>)</span></span>;</span><br><span class="line">        stack&lt;<span class="type">int</span>&gt; minStack, maxStack;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!minStack.<span class="built_in">empty</span>() &amp;&amp; nums[minStack.<span class="built_in">top</span>()] &gt; nums[i])</span><br><span class="line">                minStack.<span class="built_in">pop</span>();</span><br><span class="line">            lmin[i] = minStack.<span class="built_in">empty</span>() ? <span class="number">-1</span> : minStack.<span class="built_in">top</span>();</span><br><span class="line">            minStack.<span class="built_in">emplace</span>(i);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">while</span> (!maxStack.<span class="built_in">empty</span>() &amp;&amp; nums[maxStack.<span class="built_in">top</span>()] &lt; nums[i])</span><br><span class="line">                maxStack.<span class="built_in">pop</span>();</span><br><span class="line">            lmax[i] = maxStack.<span class="built_in">empty</span>() ? <span class="number">-1</span> : maxStack.<span class="built_in">top</span>();</span><br><span class="line">            maxStack.<span class="built_in">emplace</span>(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!minStack.<span class="built_in">empty</span>()) minStack.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">while</span> (!maxStack.<span class="built_in">empty</span>()) maxStack.<span class="built_in">pop</span>();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">while</span> (!minStack.<span class="built_in">empty</span>() &amp;&amp; nums[minStack.<span class="built_in">top</span>()] &gt;= nums[i])</span><br><span class="line">                minStack.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="type">int</span> minr = minStack.<span class="built_in">empty</span>() ? n : minStack.<span class="built_in">top</span>();</span><br><span class="line">            minStack.<span class="built_in">emplace</span>(i);</span><br><span class="line">            <span class="keyword">while</span> (!maxStack.<span class="built_in">empty</span>() &amp;&amp; nums[maxStack.<span class="built_in">top</span>()] &lt;= nums[i])</span><br><span class="line">                maxStack.<span class="built_in">pop</span>();</span><br><span class="line">            <span class="type">int</span> maxr = maxStack.<span class="built_in">empty</span>() ? n : maxStack.<span class="built_in">top</span>();</span><br><span class="line">            maxStack.<span class="built_in">emplace</span>(i);</span><br><span class="line">            ans = ans + (<span class="type">long</span> <span class="type">long</span>) ((maxr - i) * (i - lmax[i]) - (minr - i) * (i - lmin[i])) * nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://cbwood.github.io/ACM-Algorithm/2835548598.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1012,104 +1109,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://cbwood.github.io/ACM-Algorithm/3849156089.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://i.loli.net/2020/12/25/HIPVZyjOWgUsE5T.jpg">
-      <meta itemprop="name" content="cc">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CC">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ACM-Algorithm/3849156089.html" class="post-title-link" itemprop="url">leetcode-面试题 17.19 消失的两个数字</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-12-29 09:39:52" itemprop="dateCreated datePublished" datetime="2021-12-29T09:39:52+08:00">2021-12-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-12-30 15:20:12" itemprop="dateModified" datetime="2021-12-30T15:20:12+08:00">2021-12-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ACM-Algorithm/" itemprop="url" rel="index"><span itemprop="name">ACM/Algorithm</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ACM-Algorithm/3849156089.html#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ACM-Algorithm/3849156089.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vcHJvYmxlbXMvbWlzc2luZy10d28tbGNjaS8=" title="https://leetcode-cn.com/problems/missing-two-lcci/">面试题 17.19. 消失的两个数字 - 力扣（LeetCode） (leetcode-cn.com)<i class="fa fa-external-link"></i></span></p>
-<h3 id="题意"><a class="markdownIt-Anchor" href="#题意"></a> 题意</h3>
-<p>给定一个长度为N-2的数组，包含从 1 到 N 所有的整数，但其中缺了两个数字。你能在 O(N) 时间内只用 O(1) 的空间找到它们吗？</p>
-<p>以任意顺序返回这两个数字均可。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/ACM-Algorithm/3849156089.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1181,7 +1180,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">184</span>
+          <span class="site-state-item-count">185</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
